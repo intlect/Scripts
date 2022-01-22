@@ -24,7 +24,7 @@ def checkMiner(host):
         sock.send(request)
         resp = sock.recv(2048).decode()
         sock.close()
-        if ('PM' in resp) or ('ethminer') in resp:
+        if 'ethminer' in resp:
             result.append("{}:{}\t{}".format(miner[0], miner[1], resp))
     except Exception as e:
         pass
