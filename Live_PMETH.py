@@ -49,7 +49,7 @@ for chunk in tqdm(chunks):
     for thread in threads:
         thread.join()
     final = open('live_report.txt', 'a')
-    for r in result:
+    for r in temp:
         final.write(r)
     final.close()
 
