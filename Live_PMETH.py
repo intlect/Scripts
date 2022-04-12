@@ -4,6 +4,8 @@ import socket
 from tqdm import tqdm
 from threading import Thread
 from binascii import hexlify
+import ctypes
+libgcc_s = ctypes.CDLL('libgcc_s.so.1')
 
 request = (json.dumps({"id":0,"jsonrpc":"2.0","method":"control_gpu"}) + '\n').encode()
 result = []
