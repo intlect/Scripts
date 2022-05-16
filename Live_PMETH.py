@@ -30,14 +30,14 @@ def checkMiner(host):
         sock.send(request)
         resp = sock.recv(2048).decode()
         sock.close()
-        if ('"result":false,"error":null}' in resp) or ('"code":-32601,"message":"Method not found"') in resp:
+        if ('"result":false,"error":null}' in resp) or ('"code":-32601,"message":"Method not found"' in resp) and ('gpu' not in resp) and ('exist' not in resp):
             result.append("{}:{}\t{}".format(miner[0], miner[1], resp))
             temp.append("{}:{}\t{}".format(miner[0], miner[1], resp))
             print("{}:{}\t{}".format(miner[0], miner[1], resp))
     except Exception as e:
         pass
 
-at_a_time = 2000
+at_a_time = 1000
 chunks = [hosts[i:i + at_a_time] for i in range(0, len(hosts), at_a_time)]
 
 for chunk in tqdm(chunks):
