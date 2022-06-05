@@ -37,7 +37,7 @@ def checkMiner(host):
     except Exception as e:
         pass
 
-at_a_time = 1000
+at_a_time = 250
 chunks = [hosts[i:i + at_a_time] for i in range(0, len(hosts), at_a_time)]
 
 for chunk in tqdm(chunks):
